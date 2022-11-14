@@ -1,0 +1,37 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.AccountData;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Welcome to Java Bank, the bank of your family!");
+		System.out.println("Shall we start creating an account?");
+		System.out.println();
+		System.out.println("We are going to need some information");
+		System.out.println();
+		System.out.print("First enter the account number: ");
+		int accountNumber = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Great! Now enter your full name: ");
+		String name = sc.nextLine();
+		System.out.println("Perfect " + name + "! To finish creating the account, an initial deposit "
+				+ "of at least $50.00 is required.");
+		System.out.print("How much would you like to deposit (minimum $50.00): ");
+		double initialDeposit = sc.nextDouble();
+		
+		AccountData acc = new AccountData(accountNumber, name, initialDeposit);
+		
+		System.out.println("Your account has been created successfully! Thanks for choosing JB");
+		
+		sc.close();
+	}
+
+}

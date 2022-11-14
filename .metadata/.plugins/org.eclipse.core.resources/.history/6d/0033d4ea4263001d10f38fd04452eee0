@@ -1,0 +1,12 @@
+package entities;
+
+public class AccountData {
+
+	private Integer numberAccount;
+	private String name;
+	private Double amount;
+	private Double initialDeposit;
+	
+	
+	
+}
