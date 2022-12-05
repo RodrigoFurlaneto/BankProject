@@ -1,0 +1,7 @@
+package entities;
+
+public class FirstAccess {
+
+	//This's where the user'll create the account
+	
+}

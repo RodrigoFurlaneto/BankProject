@@ -1,0 +1,10 @@
+package entities;
+
+public class PersonalAccount extends Account{
+
+	@Override
+	public Account() {
+		super();
+	}
+
+}

@@ -1,0 +1,28 @@
+package entities;
+
+abstract class  Account {
+
+	private Double balance = 0.0;
+	private Double value;
+	
+	public Account(double balance) {
+		this.balance = balance;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+	
+	public void deposit(double value) {
+		balance +=value;
+	}
+	
+	public void withdraw(double value) {
+		balance -= value;
+	}
+
+}

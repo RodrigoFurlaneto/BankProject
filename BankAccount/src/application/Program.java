@@ -3,7 +3,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.AccountData;
+import entities.BusinessAccount;
+import entities.PersonalAccount;
 
 public class Program {
 
@@ -11,29 +12,70 @@ public class Program {
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+
+		//User options
+		System.out.print("1- Deposit\n2- Withdraw\n3- Convert\n4- Balance\nSelect some operation: ");
+		int userInput = sc.nextInt();
+
+		PersonalAccount pc = new PersonalAccount();
+		BusinessAccount ba = new BusinessAccount();
 		
-		System.out.println("Welcome to Java Bank, the bank of your family!");
-		System.out.println("Shall we start creating an account?");
-		System.out.println();
-		System.out.println("We are going to need some information");
-		System.out.println();
-		System.out.print("First enter the account number: ");
-		int accountNumber = sc.nextInt();
-		sc.nextLine();
-		System.out.print("Great! Now enter your full name: ");
-		String name = sc.nextLine();
-		System.out.println();
-		System.out.println("Perfect " + name + "! \n"
-				+ "To finish creating the account, an initial deposit "
-				+ "of at least $50.00 is required.");
-		System.out.print("How much would you like to deposit? (minimum $50.00): ");
-		double initialDeposit = sc.nextDouble();
+		while(userInput != 0) {
+			switch (userInput) {
+				case 1: 
+					//Deposit option
+					System.out.print("Enter much you want to deposit: $");
+					double deposit = sc.nextDouble();
+					
+					//Account type specification
+					System.out.print("PS(personal account) or BA(business account): ");
+					sc.nextLine();
+					String accountType = sc.nextLine();
+					if(accountType.equals("PS")) {
+						pc.deposit(deposit);
+					}
+					if(accountType.equals("BA")) {
+						ba.deposit(deposit);
+					}
+					//New operation
+					System.out.print("Select some operation: ");
+					userInput = sc.nextInt();
+					break;
+				case 2: 
+					//Withdraw option
+					System.out.print("Enter how much you want to withdraw: $");
+					double withdraw = sc.nextDouble();
+					
+					//Account type specification
+					System.out.print("PS(personal account) pr BA(business account): ");
+					sc.nextLine();
+					accountType = sc.nextLine();
+					if(accountType.equals("PS")) {
+						pc.withdraw(withdraw);
+					}
+					if(accountType.equals("BA")) {
+						ba.withdraw(withdraw);
+					}
+					//New operation
+					System.out.print("Select some operation: ");
+					userInput = sc.nextInt();
+					break;
+				case 3:
+					//Balance of accounts
+					System.out.println("Your balance PS is $" + String.format("%.2f", pc.getBalance()));
+					System.out.println("Your balance BA is $" + String.format("%.2f", ba.getBalance()));
+					//New operation
+					System.out.print("Select some operation: ");
+					userInput = sc.nextInt();
+					break;
+				default: 
+					System.out.print("Invalid operation, try again: ");
+					userInput = sc.nextInt();
+			}
+		}
 		
-		AccountData acc = new AccountData(accountNumber, name, initialDeposit);
-		
-		System.out.println();
-		System.out.println("Your account has been created successfully! Thanks for choosing JB");
-		
+		System.out.println("Terminated!");
+
 		sc.close();
 	}
 

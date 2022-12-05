@@ -1,0 +1,18 @@
+package entities;
+
+public class BusinessAccount extends Account{
+	
+	public BusinessAccount() {
+		super();
+	}
+
+	@Override
+	void deposit(double value) {
+		balance += value;
+	}
+
+	@Override
+	void withdraw(double value) {
+		balance -= value * 0.95;
+	}
+}

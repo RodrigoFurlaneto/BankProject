@@ -1,0 +1,15 @@
+package entities;
+
+public class PersonalAccount extends Account{
+
+	public PersonalAccount() {
+		
+	}
+	
+	public PersonalAccount(Double value) {
+		super(value);
+		
+	}
+	
+	
+}

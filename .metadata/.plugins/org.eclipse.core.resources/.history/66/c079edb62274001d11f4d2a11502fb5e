@@ -1,0 +1,20 @@
+package entities;
+
+public class PersonalAccount extends Account{
+
+	public PersonalAccount() {
+		super();
+	}
+
+	@Override
+	void deposit(double value) {
+		balance += value;
+	}
+
+	@Override
+	void withdraw(double value) {
+		balance -= value;
+	}
+	
+	
+}

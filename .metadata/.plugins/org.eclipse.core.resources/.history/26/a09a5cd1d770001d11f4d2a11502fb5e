@@ -1,0 +1,51 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.PersonalAccount;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("1- Deposit\n2- Withdraw\n3- Convert\n4- Balance\nSelect some function: ");
+		int userInput = sc.nextInt();
+
+		PersonalAccount pc = new PersonalAccount();
+		
+		while(userInput != 0) {
+			switch (userInput) {
+				case 1: 
+					System.out.println("Enter much do you want to deposit: $");
+					double deposit = sc.nextDouble();
+					pc.deposit(deposit);
+					System.out.print("Select some function: ");
+					userInput = sc.nextInt();
+					break;
+				case 2: 
+					System.out.println("Hello, word!");
+					System.out.print("Select some function: ");
+					userInput = sc.nextInt();
+					break;
+				case 3:
+					userInput = sc.nextInt();
+					break;
+				case 4: 
+					System.out.println("Your balance is: " + pc.getBalance());
+					System.out.println("Select some function: ");
+					userInput = sc.nextInt();
+					break;
+				default: 
+					System.out.print("Invalid number, try again: ");
+					userInput = sc.nextInt();
+			}
+		}
+
+		sc.close();
+	}
+
+}
